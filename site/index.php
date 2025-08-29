@@ -1,7 +1,10 @@
 <?php
     include("class/security.php");
     include ("conn/conn.php");
-	error_reporting(0);
+	//error_reporting(0);
+	error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
 	
 	// Start button configuration
     $BOTONES_NAVEGACION = "
@@ -13,7 +16,7 @@
 		</div>";
 	// Finish button configuration
 
-    $LISTA_ENCABEZADO_1 = $mysqli->query("SELECT * FROM tbl_encabezado_1 ORDER BY codigo");
+    $LISTA_ENCABEZADO_1 = $mysqli->query("SELECT * FROM tbl_encabezado_1 ORDER BY cod1");
 ?>
 
 <!doctype html>
