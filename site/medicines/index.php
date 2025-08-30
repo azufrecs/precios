@@ -151,7 +151,7 @@ $BOTONES_NAVEGACION = "
 				// Si no hay coincidencias, muestra mensaje (opcional)
 				const $filasVisibles = $tabla.find('tbody tr:visible');
 				if ($filasVisibles.length === 0) {
-					$tabla.find('tbody').html('<tr><td colspan="6" class="text-center">No se encontraron pacientes</td></tr>');
+					$tabla.find('tbody').html('<tr><td colspan="6" class="text-center">No se encontraron medicamentos</td></tr>');
 				} else if ($tabla.find('tbody tr.no-results').length) {
 					$tabla.find('tbody tr.no-results').remove();
 				}
