@@ -6,6 +6,7 @@ header('Content-Type:text/html; charset=UTF-8');
 error_reporting(0);
 
 $CONSULTA_MYSQL = $mysqli->query("SELECT * FROM tbl_medicamentos ORDER BY grupo, descripcion");
+
 // Start button configuration
 $BOTONES_NAVEGACION = "
 		<div class='col-md-12' align='center'>
@@ -89,8 +90,8 @@ $BOTONES_NAVEGACION = "
 							<th class='fs-6 ajustar text-start'>&nbsp;C&oacute;digo</th>
 							<th class='fs-6 ajustar text-start'>&nbsp;Descripci&oacute;n</th>
 							<th class='fs-6 ajustar text-start'>&nbsp;UM</th>
-							<th class='fs-6 ajustar text-end'>Precio USD&nbsp;</th>
-							<th class='fs-6 ajustar text-end'>Precio CUP&nbsp;</th>
+							<th class='fs-6 ajustar text-end'>USD&nbsp;</th>
+							<th class='fs-6 ajustar text-end'>CUP&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -100,14 +101,14 @@ $BOTONES_NAVEGACION = "
 						} else {
 							while ($row = mysqli_fetch_assoc($CONSULTA_MYSQL)) {
 								if (strlen(trim($row['descripcion'])) > 50) {
-									$DESCRIPPCIONN =  substr(trim(strtoupper($row['descripcion'])), 0, 80) . "...";
+									$DESCRIPPCIONN =  substr(trim(strtoupper($row['descripcion'])), 0, 50) . "...";
 								} else {
 									$DESCRIPPCIONN = trim(strtoupper($row['descripcion']));
 								}
 
 								echo "<tr>";
 								echo "<td class='align-middle fs-6 ajustar' align='left'>&nbsp;" . $row['codigo'] . "</td>";
-								echo "<td class='align-middle fs-6 ajustar' align='left' title='". $row['descripcion']."'>&nbsp;" . utf8_encode($DESCRIPPCIONN) . "</td>";
+								echo "<td class='align-middle fs-6 ajustar' align='left' title='". $row['descripcion']."'>&nbsp;" . $DESCRIPPCIONN . "</td>";
 								echo "<td class='align-middle fs-6 ajustar' align='left'>&nbsp;" . $row['um'] . "</td>";
 								echo "<td class='align-middle fs-6 ajustar' align='right'>" . number_format($row['precio_usd'], 2, '.', '') . "&nbsp;</td>";
 								echo "<td class='align-middle fs-6 ajustar' align='right'>" . number_format($row['precio_cup'], 2, '.', '') . "&nbsp;</td>";
