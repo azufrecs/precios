@@ -21,7 +21,7 @@
     } else {
         echo"<script>window.location.href='index.php'; </script>";
     }
-    
+
     if(isset($_GET['cod2'])){
         $COD2 = $_GET['cod2'];
         $QUERY_TITULO2 = $mysqli->query("SELECT * FROM tbl_encabezado_2 WHERE cod1='$COD1' AND cod2='$COD2'");
